@@ -15,57 +15,74 @@
       scroll-behavior: smooth;
     }
     body { position: relative; }
+
+    /* Header 메뉴 */
     header {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
+      padding: 0.5rem 0;
+      text-align: center;
       font-size: 1rem;
       letter-spacing: 0.1em;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.85);
       z-index: 10;
     }
-    header.scrolled { opacity: 1; }
+    header nav { display: flex; justify-content: center; gap: 2rem; }
+    header nav a { color: #fff; text-decoration: none; font-weight: 500; }
+    header hr { border: 0.5px solid #555; margin-top: 0.5rem; width: 80%; }
+
     section {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      padding: 1rem;
     }
-    .logo { font-size: 4rem; letter-spacing: 0.3em; font-weight: 600; }
-    .sub { margin-top: 1rem; font-size: 0.9rem; opacity: 0.6; letter-spacing: 0.15em; }
-    .philosophy { font-size: 1.1rem; letter-spacing: 0.08em; opacity: 0.75; text-align:center; padding:0 1rem; }
-    .group-section { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    .group-logo { width: 150px; height: 150px; background-color: #111; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border-radius: 10px; }
-    .group-name { font-weight: 600; font-size: 1.2rem; }
+
+    /* Main Section */
+    .logo { font-size: 4rem; letter-spacing: 0.3em; font-weight: 600; margin-bottom: 0.5rem; }
+    .sub { font-size: 0.9rem; opacity: 0.6; letter-spacing: 0.15em; }
+
+    /* Philosophy Section */
+    .philosophy { font-size: 1rem; opacity: 0.75; text-align:center; padding:0 1rem; margin-bottom: 2rem; }
+
+    /* Group Section */
+    .group-section { display: flex; flex-direction: row; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .group-logo { width: 150px; height: 150px; background-color: #111; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+
+    /* Footer */
     footer {
-      position: fixed;
-      bottom: 30px;
       width: 100%;
       display: flex;
       justify-content: center;
       gap: 36px;
+      padding-bottom: 20px;
+      flex-wrap: wrap;
     }
     footer a {
-      width: 18px;
-      height: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      color: #fff;
+      text-decoration: none;
       opacity: 0.6;
       transition: opacity 0.3s ease;
     }
     footer a:hover { opacity: 1; }
-    footer svg { fill: white; width: 100%; height: 100%; }
+
+    /* SNS 아이콘 */
+    .social svg { fill: white; width: 18px; height: 18px; }
   </style>
 </head>
 <body>
-  <header id="header">PUANG</header>
+  <!-- Header 메뉴 -->
+  <header>
+    <nav>
+      <a href="#">Artists</a>
+      <a href="#">Recruitment</a>
+      <a href="#">Something</a>
+    </nav>
+    <hr>
+  </header>
 
   <!-- Main Section -->
   <section>
@@ -78,33 +95,30 @@
     <div class="philosophy">PUANG creates artists, not products.</div>
   </section>
 
-  <!-- Group Section -->
+  <!-- Group Section (이미지 로고만) -->
   <section class="group-section">
-    <div class="group-logo">Group A</div>
-    <div class="group-name">Debut Jan 1</div>
-    <div class="group-logo">Group B</div>
-    <div class="group-name">Debuted 5 months ago</div>
+    <img src="groupA.png" class="group-logo" alt="Group A Logo">
+    <img src="groupB.png" class="group-logo" alt="Group B Logo">
   </section>
-
-  <!-- Empty Scroll Section for spacing -->
-  <section></section>
 
   <!-- Footer -->
   <footer>
-    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <a href="https://instagram.com" target="_blank" class="social" aria-label="Instagram">
       <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM17.5 6a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/></svg>
     </a>
-    <a href="https://twitter.com" target="_blank" aria-label="X">
+    <a href="https://twitter.com" target="_blank" class="social" aria-label="X">
       <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.518 7.45L22 22h-6.828l-5.35-6.93L3.8 22H1l6.96-7.96L2 2h7l4.9 6.37L18.244 2z"/></svg>
     </a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Contact</a>
   </footer>
 
   <script>
     // 스크롤 시 header opacity
-    const header = document.getElementById('header');
+    const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
+      if(window.scrollY > 50) header.style.opacity = 1;
+      else header.style.opacity = 0.85;
     });
   </script>
 </body>
