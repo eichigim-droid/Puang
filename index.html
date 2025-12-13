@@ -1,91 +1,73 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PUANG</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }html, body {
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  scroll-behavior: smooth;
-}
+    /* 기본 스타일 초기화 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000; /* 올블랙 배경 */
+      color: #fff;
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+    }
 
-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+    /* 상단 고정 헤더 */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2rem;
+      z-index: 100;
+    }
 
-.logo {
-  font-size: 4rem;
-  letter-spacing: 0.3em;
-  font-weight: 600;
-}
+    /* 각 섹션 전체 화면 */
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.sub {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.6;
-  letter-spacing: 0.15em;
-}
-
-.philosophy {
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  opacity: 0.75;
-}
-
-footer {
-  position: fixed;
-  bottom: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 36px;
-}
-
-footer a {
-  width: 18px;
-  height: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-footer a:hover {
-  opacity: 1;
-}
-
-footer svg {
-  fill: white;
-  width: 100%;
-  height: 100%;
-}
-
+    /* 로고 자리 */
+    .logo {
+      width: 300px;  /* 나중에 PNG 넣으면 크기 조정 가능 */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
-<body>  <!-- Main Section -->  <section>
-    <div class="logo">PUANG</div>
-    <div class="sub">ENTERTAINMENT</div>
-  </section>  <!-- Philosophy Section -->  <section>
-    <div class="philosophy">PUANG creates artists, not products.</div>
-  </section>  <!-- Empty Scroll Section (aesthetic spacing) -->  <section></section>  <!-- Footer Social Links -->  <footer>
-    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM17.5 6a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/></svg>
-    </a>
-    <a href="https://twitter.com" target="_blank" aria-label="X">
-      <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.518 7.45L22 22h-6.828l-5.35-6.93L3.8 22H1l6.96-7.96L2 2h7l4.9 6.37L18.244 2z"/></svg>
-    </a>
-  </footer></body>
+<body>
+
+  <!-- 상단 헤더 -->
+  <header id="header">Artists</header>
+
+  <!-- 첫 화면: 로고 집중 -->
+  <section id="section1">
+    <img src="logo.png" alt="PUANG Logo" class="logo">
+  </section>
+
+  <!-- 두 번째, 세 번째 섹션 자리 확보 -->
+  <section id="section2"></section>
+  <section id="section3"></section>
+
+  <!-- 스크롤에 따라 헤더 텍스트 바뀌는 JS -->
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if(scrollY < window.innerHeight) header.textContent = "Artists";
+      else if(scrollY < window.innerHeight*2) header.textContent = "About";
+      else header.textContent = "Recruit";
+    });
+  </script>
+
+</body>
 </html>
