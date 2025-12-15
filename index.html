@@ -2,124 +2,292 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUANG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PUANG ENTERTAINMENT</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
-    body { position: relative; }
 
-    /* Header 메뉴 */
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER ===== */
     header {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
       width: 100%;
-      padding: 0.5rem 0;
-      text-align: center;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      background-color: rgba(0,0,0,0.85);
-      z-index: 10;
-    }
-    header nav { display: flex; justify-content: center; gap: 2rem; }
-    header nav a { color: #fff; text-decoration: none; font-weight: 500; }
-    header hr { border: 0.5px solid #555; margin-top: 0.5rem; width: 80%; }
-
-    section {
-      min-height: 100vh;
+      height: 72px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 1rem;
+      justify-content: space-between;
+      padding: 0 60px;
+      background: rgba(0,0,0,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      z-index: 1000;
     }
 
-    /* Main Section */
-    .logo { font-size: 4rem; letter-spacing: 0.3em; font-weight: 600; margin-bottom: 0.5rem; }
-    .sub { font-size: 0.9rem; opacity: 0.6; letter-spacing: 0.15em; }
+    .header-left img {
+      height: 28px;
+      opacity: 0.9;
+    }
 
-    /* Philosophy Section */
-    .philosophy { font-size: 1rem; opacity: 0.75; text-align:center; padding:0 1rem; margin-bottom: 2rem; }
-
-    /* Group Section */
-    .group-section { display: flex; flex-direction: row; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-    .group-logo { width: 150px; height: 150px; background-color: #111; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
-
-    /* Footer */
-    footer {
-      width: 100%;
+    nav {
       display: flex;
-      justify-content: center;
-      gap: 36px;
-      padding-bottom: 20px;
-      flex-wrap: wrap;
+      gap: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      opacity: 0.8;
     }
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-    }
-    footer a:hover { opacity: 1; }
 
-    /* SNS 아이콘 */
-    .social svg { fill: white; width: 18px; height: 18px; }
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section {
+      min-height: 100vh;
+      padding: 140px 80px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.25em;
+      margin-bottom: 80px;
+      opacity: 0.7;
+    }
+
+    /* ===== HERO ===== */
+    #home {
+      align-items: center;
+      text-align: center;
+    }
+
+    #home img {
+      width: 240px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    .slogan {
+      max-width: 720px;
+      font-size: 1rem;
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      opacity: 0.45;
+    }
+
+    /* ===== ARTISTS ===== */
+    .artist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 140px;
+      align-items: center;
+    }
+
+    .artist {
+      text-align: center;
+    }
+
+    .artist img {
+      width: 280px;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .artist-name {
+      font-size: 1.4rem;
+      letter-spacing: 0.3em;
+      opacity: 0.85;
+    }
+
+    /* ===== MUSIC ===== */
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 60px;
+      max-width: 900px;
+    }
+
+    .music-grid img {
+      width: 100%;
+      opacity: 0.95;
+    }
+
+    /* ===== RECRUIT ===== */
+    .recruit-text {
+      max-width: 720px;
+      font-size: 1rem;
+      line-height: 1.9;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 120px 80px 80px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-bottom: 40px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .socials img {
+      width: 20px;
+      opacity: 0.6;
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      opacity: 0.4;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 120px 24px 100px;
+      }
+
+      nav {
+        gap: 20px;
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <!-- Header 메뉴 -->
+
+  <!-- ===== HEADER ===== -->
   <header>
+    <div class="header-left">
+      <!-- 회사 로고 PNG -->
+      <img src="logo.png" alt="PUANG LOGO">
+    </div>
+
     <nav>
-      <a href="#">Artists</a>
-      <a href="#">Recruitment</a>
-      <a href="#">Something</a>
+      <a href="#artists">ARTISTS</a>
+      <a href="#music">MUSIC</a>
+      <a href="#recruit">RECRUIT</a>
+      <a href="#notice">NOTICE</a>
     </nav>
-    <hr>
   </header>
 
-  <!-- Main Section -->
-  <section>
-    <div class="logo">PUANG</div>
-    <div class="sub">ENTERTAINMENT</div>
+  <!-- ===== HERO ===== -->
+  <section id="home">
+    <!-- 메인 로고 PNG -->
+    <img src="logo.png" alt="PUANG ENTERTAINMENT">
+
+    <p class="slogan">
+      An entertainment system designed for the post-artist era.<br>
+      From talent discovery to cultural impact.
+    </p>
   </section>
 
-  <!-- Philosophy Section -->
-  <section>
-    <div class="philosophy">PUANG creates artists, not products.</div>
+  <!-- ===== ARTISTS ===== -->
+  <section id="artists">
+    <div class="section-title">ARTISTS</div>
+
+    <div class="artist-list">
+      <div class="artist">
+        <!-- RUN FOR YOU 로고 PNG -->
+        <img src="artist1.png" alt="RUN FOR YOU">
+        <div class="artist-name">RUN FOR YOU</div>
+      </div>
+
+      <div class="artist">
+        <!-- EPIGRAM 로고 PNG -->
+        <img src="artist2.png" alt="EPIGRAM">
+        <div class="artist-name">EPIGRAM</div>
+      </div>
+    </div>
   </section>
 
-  <!-- Group Section (이미지 로고만) -->
-  <section class="group-section">
-    <img src="groupA.png" class="group-logo" alt="Group A Logo">
-    <img src="groupB.png" class="group-logo" alt="Group B Logo">
+  <!-- ===== MUSIC ===== -->
+  <section id="music">
+    <div class="section-title">MUSIC</div>
+
+    <div class="music-grid">
+      <!-- 앨범/싱글 PNG -->
+      <img src="music1.png" alt="Music 1">
+      <img src="music2.png" alt="Music 2">
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <a href="https://instagram.com" target="_blank" class="social" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM17.5 6a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/></svg>
-    </a>
-    <a href="https://twitter.com" target="_blank" class="social" aria-label="X">
-      <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.518 7.45L22 22h-6.828l-5.35-6.93L3.8 22H1l6.96-7.96L2 2h7l4.9 6.37L18.244 2z"/></svg>
-    </a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Contact</a>
+  <!-- ===== RECRUIT ===== -->
+  <section id="recruit">
+    <div class="section-title">RECRUIT</div>
+
+    <p class="recruit-text">
+      We are building a new entertainment structure where artists,
+      creators, and systems evolve together.<br><br>
+
+      PUANG seeks individuals who think beyond trends, challenge
+      existing formats, and shape culture rather than follow it.<br><br>
+
+      If you believe entertainment can be redesigned,
+      we want to work with you.
+    </p>
+  </section>
+
+  <!-- ===== FOOTER / NOTICE ===== -->
+  <footer id="notice">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+      <a href="#">Language</a>
+    </div>
+
+    <div class="socials">
+      <!-- 아이콘 PNG -->
+      <img src="instagram.png" alt="Instagram">
+      <img src="twitter.png" alt="Twitter">
+      <img src="youtube.png" alt="YouTube">
+      <img src="spotify.png" alt="Spotify">
+    </div>
+
+    <div class="copyright">
+      © 2025 PUANG ENTERTAINMENT. ALL RIGHTS RESERVED.
+    </div>
   </footer>
 
-  <script>
-    // 스크롤 시 header opacity
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) header.style.opacity = 1;
-      else header.style.opacity = 0.85;
-    });
-  </script>
 </body>
 </html>
