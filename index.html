@@ -2,209 +2,295 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUANG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PUANG ENTERTAINMENT</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      display: flex;
-      flex-direction: column;
+      background-color: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
     }
 
-    /* 상단 메뉴 */
-    nav {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER ===== */
+    header {
       position: fixed;
       top: 0;
       width: 100%;
-      height: 60px;
-      background: rgba(0,0,0,0.8);
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 30px;
+      padding: 0 60px;
+      background: rgba(0,0,0,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
       z-index: 1000;
     }
-    nav .logo img {
-      width: 200px; /* 회사 로고 크기 조절 */
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: opacity 0.3s ease;
-    }
-    nav ul li a:hover { opacity: 0.7; }
 
-    /* 섹션 공통 */
+    .header-left img {
+      height: 28px;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* ===== SECTION COMMON ===== */
     section {
-      height: 100vh;
+      min-height: 100vh;
+      padding: 140px 80px 120px;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.25em;
+      margin-bottom: 60px;
+      opacity: 0.7;
+    }
+
+    /* ===== HERO ===== */
+    #home {
+      align-items: center;
       text-align: center;
     }
 
-    /* Home */
-    #home .slg {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      opacity: 0.75;
-      max-width: 700px;
+    #home img {
+      width: 240px;
+      margin-bottom: 40px;
+      opacity: 0.95;
     }
 
-    /* Artists */
-    #artists .artist-grid {
+    .slogan {
+      max-width: 720px;
+      font-size: 1rem;
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      opacity: 0.45;
+    }
+
+    /* ===== ARTISTS ===== */
+    .artist-list {
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 140px;
+      align-items: center;
     }
-    #artists .artist-grid img {
-      width: 300px;
+
+    .artist {
+      text-align: center;
     }
-    #artists .artist-name {
-      margin-top: 10px;
-      font-size: 1.2rem;
+
+    .artist img {
+      width: 280px;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .artist-name {
+      font-size: 1.4rem;
+      letter-spacing: 0.3em;
+      opacity: 0.85;
+    }
+
+    /* ===== MUSIC ===== */
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .music-grid img {
+      width: 100%;
+      opacity: 0.95;
+    }
+
+    /* ===== RECRUIT ===== */
+    .recruit-text {
+      max-width: 720px;
+      font-size: 1rem;
+      line-height: 1.9;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 120px 80px 80px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-bottom: 40px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .socials img {
+      width: 20px;
+      opacity: 0.6;
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      opacity: 0.4;
       letter-spacing: 0.1em;
     }
 
-    /* Music */
-    #music .music-grid {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    #music .music-grid img {
-      width: 220px;
-      opacity: 0.95;
-      transition: opacity 0.3s ease;
-    }
-    #music .music-grid img:hover { opacity: 1; }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 24px;
+      }
 
-    /* Recruit */
-    #recruit .recruit-text {
-      max-width: 700px;
-      font-size: 1.1rem;
-      opacity: 0.85;
-      line-height: 1.6;
-    }
+      section {
+        padding: 120px 24px 100px;
+      }
 
-    /* Notice */
-    #notice .notice-text {
-      max-width: 800px;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      line-height: 1.5;
-      margin-bottom: 30px;
+      nav {
+        gap: 20px;
+        font-size: 0.8rem;
+      }
     }
-
-    /* Footer SNS */
-    footer {
-      display: flex;
-      justify-content: center;
-      gap: 36px;
-      padding: 20px 0;
-    }
-    footer a {
-      width: 24px;
-      height: 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-    }
-    footer a:hover { opacity: 1; }
-    footer svg { fill: #fff; width: 100%; height: 100%; }
   </style>
 </head>
-<body>
-  <!-- 상단 메뉴 -->
-  <nav>
-    <div class="logo"><img src="logo.png" alt="PUANG"></div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#artists">Artists</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#recruit">Recruit</a></li>
-      <li><a href="#notice">Notice</a></li>
-    </ul>
-  </nav>
 
-  <!-- Home 섹션 -->
-  <section id="home">
-    <img src="logo.png" alt="PUANG Logo">
-    <div class="slg">
-      An entertainment system designed for the post-artist era. From talent discovery to cultural impact.
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-left">
+      <!-- 회사 로고 PNG -->
+      <img src="logo.png" alt="PUANG LOGO">
     </div>
+
+    <nav>
+      <a href="#artists">ARTISTS</a>
+      <a href="#music">MUSIC</a>
+      <a href="#recruit">RECRUIT</a>
+      <a href="#notice">NOTICE</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home">
+    <!-- 메인 로고 PNG -->
+    <img src="logo.png" alt="PUANG ENTERTAINMENT">
+
+    <p class="slogan">
+      An entertainment system designed for the post-artist era.<br>
+      From talent discovery to cultural impact.
+    </p>
   </section>
 
-  <!-- Artists 섹션 -->
+  <!-- ===== ARTISTS ===== -->
   <section id="artists">
-    <div class="artist-grid">
-      <div>
+    <div class="section-title">ARTISTS</div>
+
+    <div class="artist-list">
+      <div class="artist">
+        <!-- RUN FOR YOU 로고 PNG -->
         <img src="artist1.png" alt="RUN FOR YOU">
         <div class="artist-name">RUN FOR YOU</div>
       </div>
-      <div>
+
+      <div class="artist">
+        <!-- EPIGRAM 로고 PNG -->
         <img src="artist2.png" alt="EPIGRAM">
         <div class="artist-name">EPIGRAM</div>
       </div>
     </div>
   </section>
 
-  <!-- Music 섹션 -->
+  <!-- ===== MUSIC ===== -->
   <section id="music">
+    <div class="section-title">MUSIC</div>
+
     <div class="music-grid">
+      <!-- 앨범/싱글 PNG -->
       <img src="music1.png" alt="Music 1">
       <img src="music2.png" alt="Music 2">
     </div>
   </section>
 
-  <!-- Recruit 섹션 -->
+  <!-- ===== RECRUIT ===== -->
   <section id="recruit">
-    <div class="recruit-text">
-      Our vision is to empower artists to shape culture, not just create content. We focus on discovering talent, building sustainable careers, and redefining the entertainment experience.
-    </div>
+    <div class="section-title">RECRUIT</div>
+
+    <p class="recruit-text">
+      We are building a new entertainment structure where artists,
+      creators, and systems evolve together.<br><br>
+
+      PUANG seeks individuals who think beyond trends, challenge
+      existing formats, and shape culture rather than follow it.<br><br>
+
+      If you believe entertainment can be redesigned,
+      we want to work with you.
+    </p>
   </section>
 
-  <!-- Notice 섹션 -->
-  <section id="notice">
-    <div class="notice-text">
-      Terms of Service | Privacy Policy | Contact | Language: EN
+  <!-- ===== FOOTER / NOTICE ===== -->
+  <footer id="notice">
+    <div class="section-title">NOTICE</div>
+    
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+      <a href="#">Language</a>
     </div>
-  </section>
 
-  <!-- Footer SNS -->
-  <footer>
-    <a href="https://instagram.com/puang" target="_blank" aria-label="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM17.5 6a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/></svg>
-    </a>
-    <a href="https://twitter.com/puang" target="_blank" aria-label="Twitter">
-      <svg viewBox="0 0 24 24"><path d="M18.244 2H21l-6.518 7.45L22 22h-6.828l-5.35-6.93L3.8 22H1l6.96-7.96L2 2h7l4.9 6.37L18.244 2z"/></svg>
-    </a>
-    <a href="https://youtube.com/puang" target="_blank" aria-label="YouTube">
-      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm12-3c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v5z"/></svg>
-    </a>
-    <a href="https://spotify.com/artist/PUANG" target="_blank" aria-label="Spotify">
-      <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12s12-5.37 12-12c0-6.63-5.37-12-12-12zm5.47 17.41c-.22.34-.66.44-1 .22-2.77-1.7-6.27-2.09-10.38-1.13-.39.08-.8-.17-.88-.56-.08-.39.17-.8.56-.88 4.51-.96 8.24-.52 11.33 1.26.36.23.46.66.22 1zm1.42-3.03c-.27.43-.82.57-1.25.3-3.18-1.94-8.03-2.51-11.8-1.36-.48.13-.99-.17-1.12-.65-.13-.48.17-.99.65-1.12 4.38-1.18 9.58-.55 13.18 1.45.44.26.57.82.3 1.38zm.15-3.06c-3.57-2.07-9.48-2.26-13.01-1.22-.57.17-1.17-.15-1.33-.72-.17-.57.15-1.17.72-1.33 4.11-1.25 10.44-1.03 14.18 1.37.52.3.7.97.44 1.5-.27.52-.97.7-1.5.4z"/></svg>
-    </a>
+    <div class="socials">
+      <!-- SNS 아이콘 PNG -->
+      <img src="instagram.png" alt="Instagram">
+      <img src="twitter.png" alt="Twitter">
+      <img src="youtube.png" alt="YouTube">
+      <img src="spotify.png" alt="Spotify">
+    </div>
+
+    <div class="copyright">
+      © 2025 PUANG ENTERTAINMENT. ALL RIGHTS RESERVED.
+    </div>
   </footer>
+
 </body>
 </html>
